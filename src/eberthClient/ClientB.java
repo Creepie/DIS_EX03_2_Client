@@ -7,7 +7,7 @@ import javax.xml.ws.Service;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Main {
+public class ClientB {
 
     static ISimpleInterface mSOAP;
 
@@ -19,5 +19,6 @@ public class Main {
         mSOAP = service.getPort(ISimpleInterface.class);
 
         System.out.println(mSOAP.saySomething());
+
     }
 }
