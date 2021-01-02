@@ -1,5 +1,7 @@
 package eberthClient;
 
+import eberthClient.generate.ISimpleInterface;
+
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 import java.net.MalformedURLException;
@@ -7,19 +9,15 @@ import java.net.URL;
 
 public class Main {
 
-    ISimpleInterface mSOAP;
+    static ISimpleInterface mSOAP;
 
-    public void Client() throws MalformedURLException {
+    public static void main(String[] args) throws MalformedURLException {
         Service service = Service.create(
                 new URL("http://localhost:8081/HelloWorld?wsdl"),
-                new QName("http://service.jaxws.vis.mc.fhooe.at/",
+                new QName("http://eberth/",
                         "HelloWorldService"));
         mSOAP = service.getPort(ISimpleInterface.class);
-        )
-    }
 
-
-    public static void main(String[] args) {
-
+        System.out.println(mSOAP.saySomething());
     }
 }
